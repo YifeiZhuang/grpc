@@ -53,8 +53,8 @@ _TEST_CASES = [
     'gentle_failover',
     'ping_pong',
     'remove_instance_group',
-    'round_robin',
     'secondary_locality_gets_no_requests_on_partial_primary_failure',
+    'round_robin',
     'secondary_locality_gets_requests_on_primary_failure',
     'traffic_splitting',
 ]
