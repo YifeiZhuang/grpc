@@ -34,10 +34,9 @@ from framework.infrastructure import k8s
 from framework.infrastructure import traffic_director
 from framework.rpc import grpc_channelz
 from framework.rpc import grpc_testing
+from framework.rpc.grpc_csds import ClientConfig
 from framework.test_app import client_app
 from framework.test_app import server_app
-
-from framework.rpc.grpc_csds import ClientConfig
 
 logger = logging.getLogger(__name__)
 _FORCE_CLEANUP = flags.DEFINE_bool(
