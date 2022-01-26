@@ -34,10 +34,9 @@ from framework.infrastructure import k8s
 from framework.infrastructure import traffic_director
 from framework.rpc import grpc_channelz
 from framework.rpc import grpc_testing
+from framework.rpc.grpc_csds import ClientConfig
 from framework.test_app import client_app
 from framework.test_app import server_app
-
-from framework.rpc.grpc_csds import ClientConfig
 
 logger = logging.getLogger(__name__)
 _FORCE_CLEANUP = flags.DEFINE_bool(
@@ -373,8 +372,9 @@ class XdsKubernetesTestCase(absltest.TestCase, metaclass=abc.ABCMeta):
             self, test_client: XdsTestClient,
             previous_route_config_version: str, retry_wait_second: int,
             timeout_second: int):
-        logger.info('comparing route config versions, previous_route_config_version: %s',
-                    previous_route_config_version)
+        logger.info(
+            'comparing route config versions, previous_route_config_version: %s',
+            previous_route_config_version)
         retryer = retryers.constant_retryer(
             wait_fixed=datetime.timedelta(seconds=retry_wait_second),
             timeout=datetime.timedelta(seconds=timeout_second),
@@ -385,8 +385,10 @@ class XdsKubernetesTestCase(absltest.TestCase, metaclass=abc.ABCMeta):
             for attempt in retryer:
                 with attempt:
                     self.assertSuccessfulRpcs(test_client)
-                    config = test_client.csds.fetch_client_status(log_level=logging.INFO)
-                    route_config_version = self.extractRouteConfigVersion(config)
+                    config = test_client.csds.fetch_client_status(
+                        log_level=logging.INFO)
+                    route_config_version = self.extractRouteConfigVersion(
+                        config)
                     if previous_route_config_version == route_config_version:
                         logger.info(
                             'Routing config not propagated yet. Retrying.')
