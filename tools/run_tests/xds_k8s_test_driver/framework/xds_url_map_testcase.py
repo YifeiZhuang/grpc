@@ -97,8 +97,8 @@ class DumpedXdsConfig(dict):
                 elif 'routeConfig' in xds_config:
                     self.rds = xds_config['routeConfig']['dynamicRouteConfigs'][
                         0]['routeConfig']
-                    self.rds_version = xds_config['routeConfig']['dynamicRouteConfigs'][
-                        0]['versionInfo']
+                    self.rds_version = xds_config['routeConfig'][
+                        'dynamicRouteConfigs'][0]['versionInfo']
                 elif 'clusterConfig' in xds_config:
                     for cluster in xds_config['clusterConfig'][
                             'dynamicActiveClusters']:

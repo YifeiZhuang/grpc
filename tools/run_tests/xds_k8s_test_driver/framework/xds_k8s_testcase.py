@@ -372,7 +372,8 @@ class XdsKubernetesTestCase(absltest.TestCase, metaclass=abc.ABCMeta):
                     self.assertSuccessfulRpcs(test_client)
                     config = test_client.csds.fetch_client_status(
                         log_level=logging.INFO)
-                    route_config_version = DumpedXdsConfig(json_format.MessageToDict(config)).rds_version
+                    route_config_version = DumpedXdsConfig(
+                        json_format.MessageToDict(config)).rds_version
                     if previous_route_config_version == route_config_version:
                         logger.info(
                             'Routing config not propagated yet. Retrying.')
