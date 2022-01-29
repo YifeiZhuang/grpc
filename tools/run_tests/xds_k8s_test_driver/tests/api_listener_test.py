@@ -15,9 +15,9 @@ import logging
 
 from absl import flags
 from absl.testing import absltest
+from google.protobuf import json_format
 
 from framework import xds_k8s_testcase
-from google.protobuf import json_format
 from framework.xds_url_map_testcase import DumpedXdsConfig
 
 logger = logging.getLogger(__name__)
