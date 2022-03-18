@@ -34,7 +34,7 @@ logger = logging.getLogger(__name__)
 flags.adopt_module_key_flags(xds_url_map_testcase)
 
 _NUM_RPCS = 150
-match_labels = [{'name': 'TRAFFICDIRECTOR_NETWORK_NAME', 'value': 'default'}]
+match_labels = [{'name': 'TRAFFICDIRECTOR_NETWORK_NAME', 'value': 'default-vpc'}]
 not_match_labels = [{'name': 'fake', 'value': 'fail'}]
 
 
