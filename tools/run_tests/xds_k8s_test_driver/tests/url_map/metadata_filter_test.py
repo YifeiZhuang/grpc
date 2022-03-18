@@ -34,7 +34,8 @@ logger = logging.getLogger(__name__)
 flags.adopt_module_key_flags(xds_url_map_testcase)
 
 _NUM_RPCS = 150
-match_labels = [{'name': 'TRAFFICDIRECTOR_NETWORK_NAME', 'value': 'default-vpc'}]
+# match_labels = [{'name': 'TRAFFICDIRECTOR_NETWORK_NAME', 'value': 'default-vpc'}]
+match_labels = []
 not_match_labels = [{'name': 'fake', 'value': 'fail'}]
 
 
@@ -70,6 +71,7 @@ class TestMetadataFilterMatchAll(xds_url_map_testcase.XdsUrlMapTestCase):
         return host_rule, path_matcher
 
     def xds_config_validate(self, xds_config: DumpedXdsConfig):
+        logger.info('rds config:%s', xds_config.rds)
         self.assertNumEndpoints(xds_config, 2)
         self.assertEqual(len(xds_config.rds['virtualHosts'][0]['routes']), 2)
         logger.info('config:%s', xds_config)
