@@ -60,11 +60,7 @@ class TestMetadataFilterMatchAll(xds_url_map_testcase.XdsUrlMapTestCase):
             'priority': 1,
             'matchRules': [{
                 'prefixMatch':
-                    '/',
-                'metadataFilters': [{
-                    'filterMatchCriteria': 'MATCH_ALL',
-                    'filterLabels': match_labels
-                }]
+                    '/'
             }],
             'service': GcpResourceManager().alternative_backend_service()
         }]
