@@ -702,7 +702,7 @@ _AUTH_TEST_CASES = [
 ]
 
 _HTTP2_TEST_CASES = [
-  # 'tls', 'framing'
+    # 'tls', 'framing'
 ]
 
 _HTTP2_SERVER_TEST_CASES = [
