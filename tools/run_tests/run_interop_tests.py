@@ -702,7 +702,7 @@ _AUTH_TEST_CASES = [
 ]
 
 _HTTP2_TEST_CASES = [
-  # 'tls', 'framing'
+    # 'tls', 'framing'
 ]
 
 _HTTP2_SERVER_TEST_CASES = [
@@ -1535,7 +1535,8 @@ try:
                             docker_image=docker_images.get(str(language)),
                             transport_security=args.transport_security,
                             manual_cmd_log=client_manual_cmd_log)
-                        if test_case in _SERIALIZING_TEST_CASES and len(jobs_sets[-1]) > 0:
+                        if test_case in _SERIALIZING_TEST_CASES and len(
+                                jobs_sets[-1]) > 0:
                             jobs_sets.append([])
                         jobs_sets[-1].append(test_job)
 
